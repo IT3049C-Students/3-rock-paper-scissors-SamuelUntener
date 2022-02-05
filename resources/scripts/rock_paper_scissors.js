@@ -1,3 +1,5 @@
+const { update } = require("lodash");
+
 class RockPaperScissors {
   constructor(username) {
     this.username = username;
@@ -14,7 +16,10 @@ class RockPaperScissors {
    */
   generateCPUResponse(){
     const acceptedValues = [ `rock`, `paper`, `scissors` ];
-
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    console.log(getRandomInt(3));
     return ;
   }
   /**
@@ -33,15 +38,39 @@ class RockPaperScissors {
    * @param {string} cpuSelection computer selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   determineWinner(userSelection, cpuSelection){
-
-  }
-
+    var compare = function (userSelection, cpuSelection) {
+      if(userSelection === cpuSelection) 
+      {return "tie";}
+      
+      else if(userSelection === "Rock") 
+          if (cpuSelection === "Scissors") 
+          {return "win";}
+          else 
+          {return "lose";}
+      else if (userSelection === "Paper")
+          if (cpuSelection === "Rock")
+          {return "win";}
+          else
+          {return "lose";}
+      else if (userSelection === "Scissors")
+          if (cpuSelection === "Rock")
+          {return "lose";}
+          else
+          {return "win";}
+       }
+   }
   /**
    * 
    * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   play(userSelection){
-
-  }
-
+    
+  
+    if (determineWinner(userSelection, cpuSelection)) generateCPUResponse();
+    else this.score.cpu++; this.gameHistoryLog.add("Sam selected " + userSelection + ", CPU selected " + cpuSelection + ": CPU wins");
+     if (determineWinner(userSelection, cpuSelection)) generateCPUResponse();
+     else this.score.user++; this.gameHistoryLog.add("Sam selected " + userSelection + ", CPU selected " + cpuSelection + ": Sam wins");
+      if (determineWinner(userSelection, cpuSelection)) generateCPUResponse();
+      this.gameHistoryLog.add("Sam selected " + userSelection + ", cpu selected " + cpuSelection + ": It's a tie");
+    }
 }
