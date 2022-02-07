@@ -67,10 +67,10 @@ class RockPaperScissors {
     
   
     if (determineWinner(userSelection, cpuSelection)) generateCPUResponse();
-    else this.score.cpu++; this.gameHistoryLog.add("Sam selected " + userSelection + ", CPU selected " + cpuSelection + ": CPU wins");
+    else this.score.cpu++; this.gameHistoryLog.add("You selected " + userSelection + ", CPU selected " + cpuSelection + ": CPU wins");
      if (determineWinner(userSelection, cpuSelection)) generateCPUResponse();
-     else this.score.user++; this.gameHistoryLog.add("Sam selected " + userSelection + ", CPU selected " + cpuSelection + ": Sam wins");
+     else this.score.user++; this.gameHistoryLog.add("You selected " + userSelection + ", CPU selected " + cpuSelection + ": You win");
       if (determineWinner(userSelection, cpuSelection)) generateCPUResponse();
-      this.gameHistoryLog.add("Sam selected " + userSelection + ", cpu selected " + cpuSelection + ": It's a tie");
+      this.gameHistoryLog.add("You selected " + userSelection + ", cpu selected " + cpuSelection + ": It's a tie");
     }
 }
